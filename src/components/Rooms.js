@@ -1,11 +1,44 @@
 import React, { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
 
+const RoomOverlay = ({ roomInfo, onHide }) => {
+    return (
+      <Modal show={true} onHide={onHide}>
+        <Modal.Header closeButton>
+          <Modal.Title>{roomInfo.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Capacity: {roomInfo.capacity}</p>
+          <p>Description: {roomInfo.description}</p>
+          {/* Add more room information here */}
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="primary" onClick={() => console.log("Book button clicked")}>
+                Book
+                <a href="/booking"></a>
+            </Button>
+            <Button variant="secondary" onClick={onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  };
 function Room({ room }) {
-    const [show, setShow] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(false);
+    //const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    //const handleClose = () => setShow(false);
+    //const handleShow = () => setShow(true);
+
+    const toggleOverlay = () => {
+        setShowOverlay(!showOverlay);
+    };
+
+    const roomInfo = {
+        name: 'Sample Room',
+        capacity: 10,
+        description: 'This is a sample room for demonstration purposes.',
+        // Add more room information here
+    };
 
     return (
         <div className='container'>
@@ -24,10 +57,12 @@ function Room({ room }) {
                         </b>
 
                         <div style={{ float: "right" }}>
-                            <button className="btn btn-primary">View Details</button>
+                            <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
+                            {showOverlay && <RoomOverlay roomInfo = {roomInfo} onHide={toggleOverlay} />}
                         </div>
                     </div>
 
+                    {/*
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Modal heading</Modal.Title>
@@ -42,6 +77,7 @@ function Room({ room }) {
                             </Button>
                         </Modal.Footer>
                     </Modal>
+                    */}
 
                 </div>
             </div>

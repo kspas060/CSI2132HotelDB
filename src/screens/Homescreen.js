@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import {Modal, Button} from 'react-bootstrap';
+import Room from '../components/Rooms';
 
 function Homescreen() {
 
@@ -76,9 +77,7 @@ function Homescreen() {
 
       // </div>
 
-      <div>
-        
-      </div>
+      <Room/>
 
       )
 }
