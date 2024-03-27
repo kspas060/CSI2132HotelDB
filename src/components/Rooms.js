@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
 
+
 const RoomOverlay = ({ roomInfo, onHide }) => {
     return (
       <Modal show={true} onHide={onHide}>
@@ -13,10 +14,7 @@ const RoomOverlay = ({ roomInfo, onHide }) => {
           {/* Add more room information here */}
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="primary" onClick={() => console.log("Book button clicked")}>
-                Book
-                <a href="/booking"></a>
-            </Button>
+            <a href="/booking" className="btn btn-primary">Book</a>
             <Button variant="secondary" onClick={onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
