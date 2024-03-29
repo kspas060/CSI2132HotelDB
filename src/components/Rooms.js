@@ -1,73 +1,62 @@
 import React, { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
 
-
 const RoomOverlay = ({ roomInfo, onHide }) => {
-    return (
-      <Modal show={true} onHide={onHide}>
-        <Modal.Header closeButton>
-          <Modal.Title>{roomInfo.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Capacity: {roomInfo.capacity}</p>
-          <p>Description: {roomInfo.description}</p>
-          {/* Add more room information here */}
-        </Modal.Body>
-        <Modal.Footer>
-            <a href="/booking" className="btn btn-primary">Book</a>
-            <Button variant="secondary" onClick={onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  };
+  return (
+    <Modal show={true} onHide={onHide}>
+      <Modal.Header closeButton>
+        <Modal.Title>{roomInfo.name}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>Capacity: {roomInfo.capacity}</p>
+        <p>Description: {roomInfo.description}</p>
+        {/* Add more room information here */}
+      </Modal.Body>
+      <Modal.Footer>
+          <a href="/booking" className="btn btn-primary">Book</a>
+          <Button variant="secondary" onClick={onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
 function Room({ room }) {
-    const [showOverlay, setShowOverlay] = useState(false);
-    //const [show, setShow] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
-    //const handleClose = () => setShow(false);
-    //const handleShow = () => setShow(true);
+  const toggleOverlay = () => {
+      setShowOverlay(!showOverlay);
+  };
 
-    const toggleOverlay = () => {
-        setShowOverlay(!showOverlay);
-    };
+  return (
+      <div className='container'>
+          <div className="row justify-content-center mt-5">
+              <div className="row bs">
+                  <div className="col-md-4">
+                      <img src={room.image} className="smallimg" alt={room.name}></img>
+                  </div>
 
-    const roomInfo = {
-        name: 'Sample Room',
-        capacity: 10,
-        description: 'This is a sample room for demonstration purposes.',
-        // Add more room information here
-    };
+                  <div className="col-md-7">
+                      <h1>{room.name}</h1>
+                      <b>
+                          <p>Available Rooms: {room.availableRooms}</p>
+                          <p>Price: {room.price}</p>
+                          <p>Number of Guests: {room.numOfGuests}</p>
+                      </b>
 
-    return (
-        <div className='container'>
-            <div className="row justify-content-center mt-5">
-                <div className="row bs">
-                    <div className="col-md-4">
-                        <img src="https://t3.ftcdn.net/jpg/02/71/08/28/360_F_271082810_CtbTjpnOU3vx43ngAKqpCPUBx25udBrg.jpg"  className="smallimg"></img>
-                    </div>
+                      <div style={{ float: "right" }}>
+                          <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
+                          {showOverlay && <RoomOverlay roomInfo={room} onHide={toggleOverlay} />}
+                      </div>
+                      <div style={{ float: "right" }}>
+                          <a href="/booking" className="btn btn-primary">Book Now</a>
+                      </div>
+                      
+                  </div>
 
-                    <div className="col-md-7">
-                        <h1>Ocean View</h1>
-                        <b>
-                            <p>Available Rooms: </p>
-                            <p>Price: </p>
-                            <p>Number of Guests: </p>
-                        </b>
-
-                        <div style={{ float: "right" }}>
-                            <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
-                            {showOverlay && <RoomOverlay roomInfo = {roomInfo} onHide={toggleOverlay} />}
-                        </div>
-                        <div style={{ float: "right" }}>
-                        <a href="/booking" className="btn btn-primary">Book Now</a>
-                        </div>
-                        
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    );
+              </div>
+          </div>
+      </div>
+  );
 }
 
 export default Room;
