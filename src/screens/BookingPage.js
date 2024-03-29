@@ -13,7 +13,7 @@ export const BookingPage = () => {
               <CalendarBooker />
               <hr />
               <div className="text-center">
-                <Button variant="primary">Confirm Booking</Button>
+                <a href="/bookingConfirmation" className="btn btn-primary">Confirm Booking</a>
               </div>
             </Card.Body>
           </Card>

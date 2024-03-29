@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Homescreen from './screens/Homescreen';
 import Room from './components/Rooms';
 import { BookingPage } from './screens/BookingPage';
+import BookingConfirmation from './screens/BookingConfirmation';
 
 
 
@@ -19,6 +20,10 @@ function App() {
         <Routes>
           <Route path="/booking" exact Component={BookingPage} />
         </Routes>
+        <Routes>
+          <Route path="/bookingConfirmation" exact Component={BookingConfirmation} />
+        </Routes>
+
       </Router>
 
 

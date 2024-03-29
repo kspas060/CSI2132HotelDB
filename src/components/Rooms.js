@@ -58,24 +58,11 @@ function Room({ room }) {
                             <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
                             {showOverlay && <RoomOverlay roomInfo = {roomInfo} onHide={toggleOverlay} />}
                         </div>
+                        <div style={{ float: "right" }}>
+                        <a href="/booking" className="btn btn-primary">Book Now</a>
+                        </div>
+                        
                     </div>
-
-                    {/*
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Modal heading</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Button variant="primary" onClick={handleClose}>
-                                Save Changes
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
-                    */}
 
                 </div>
             </div>
