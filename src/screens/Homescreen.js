@@ -77,7 +77,16 @@ function Homescreen() {
 
       // </div>
 
-      <Room/>
+      // <Room/>
+      <Room room={{
+        name: 'Ocean View',
+        availableRooms: 5,
+        price: '$200',
+        numOfGuests: 2,
+        description: 'Beautiful room with ocean view',
+        image: 'https://t3.ftcdn.net/jpg/02/71/08/28/360_F_271082810_CtbTjpnOU3vx43ngAKqpCPUBx25udBrg.jpg'
+    }} />
+    
 
       )
 }
