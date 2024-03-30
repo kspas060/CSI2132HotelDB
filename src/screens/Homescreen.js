@@ -28,7 +28,7 @@ function Homescreen() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/rooms/getallrooms')
+    axios.get('http://localhost:3001/api/room/getallrooms')
       .then(response => {
         setRooms(response.data);
       })
