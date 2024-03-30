@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const RoomOverlay = ({ roomInfo, onHide }) => {
   return (
@@ -20,7 +21,7 @@ const RoomOverlay = ({ roomInfo, onHide }) => {
   );
 };
 
-function Room({ room }) {
+function Room({ room, fromdate, todate }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const toggleOverlay = () => {
@@ -47,9 +48,12 @@ function Room({ room }) {
                           <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
                           {showOverlay && <RoomOverlay roomInfo={room} onHide={toggleOverlay} />}
                       </div>
+                      {/* <Link to={`/booking/${fromdate}/${todate}`}>
+                        <button className="btn btn-primary">Book Now</button>
+                      </Link> */}
                       <div style={{ float: "right" }}>
                           <a href="/booking" className="btn btn-primary">Book Now</a>
-                      </div>
+                      </div >
                       
                   </div>
 

@@ -1,4 +1,9 @@
 import React from 'react'
+import CalendarBooker from '../components/CalendarBooker'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import Homescreen from './Homescreen';
+
 
 function BookingConfirmation() {
     return (
@@ -9,20 +14,20 @@ function BookingConfirmation() {
                 <img src="https://t3.ftcdn.net/jpg/02/71/08/28/360_F_271082810_CtbTjpnOU3vx43ngAKqpCPUBx25udBrg.jpg" className='bigimg'></img>
             </div>
 
-            <div className="col-md-6" style={{textAlign: 'right'}}>
+            <div className="col-md-6" style={{ textAlign: 'right' }}>
                 <h1>Booking Details</h1>
                 <hr />
 
-                <div style={{textAlign: 'right'}}>
+                <div style={{ textAlign: 'right' }}>
                     <b>
                         <p>Name: </p>
                         <p>Start Date:</p>
-                        <p>End Date:</p>
+                        <p>End Date: </p>
                         <p>Number of Guests: </p>
                     </b>
                 </div>
 
-                <div style={{textAlign: 'right'}}>
+                <div style={{ textAlign: 'right' }}>
                     <b>
                         <h1>Amount</h1>
                         <hr />
@@ -32,7 +37,7 @@ function BookingConfirmation() {
                     </b>
                 </div>
 
-                <div style={{float:'right'}}>
+                <div style={{ float: 'right' }}>
                     <button className='btn btn-primary'>Pay Now</button>
                 </div>
             </div>
