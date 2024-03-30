@@ -10,10 +10,9 @@ const { RangePicker } = DatePicker;
 
 function Homescreen() {
 
-  const [rooms, setrooms] = useState([])
-  const [loading, setloading] = useState()
-  const [error, seterror] = useState()
+  const [rooms, setRooms] = useState([]);
 
+<<<<<<< HEAD
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -54,6 +53,23 @@ function Homescreen() {
     </div>
 
 
+=======
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/rooms/getallrooms')
+      .then(response => {
+        setRooms(response.data);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
+
+  return (
+    <div>
+      {rooms.map(room => (
+        <Room key={room.name} room={room} />
+      ))}
+    </div>
+>>>>>>> dbfcbf5263dc0179d8667ef4a31f4cf6a7b2949a
   )
 }
 
