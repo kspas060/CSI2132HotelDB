@@ -42,27 +42,9 @@ function Room({ room, fromdate, todate }) {
                         <p>Price: {room.price}</p>
                         <p>Number of Beds: {room.capacity}</p>
                         <p>Description: {room.description}</p>
-                        {/* Add more attributes as needed */}
+
                     </b>
 
-<<<<<<< HEAD
-                      <div style={{ float: "right" }}>
-                          <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
-                          {showOverlay && <RoomOverlay roomInfo={room} onHide={toggleOverlay} />}
-                      </div>
-                      {/* <Link to={`/booking/${fromdate}/${todate}`}>
-                        <button className="btn btn-primary">Book Now</button>
-                      </Link> */}
-                      <div style={{ float: "right" }}>
-                          <a href="/booking" className="btn btn-primary">Book Now</a>
-                      </div >
-                      
-                  </div>
-
-              </div>
-          </div>
-      </div>
-=======
                     <div style={{ float: "right" }}>
                         <button className="btn btn-primary" onClick={toggleOverlay}>View Details</button>
                         {showOverlay && <RoomOverlay roomInfo={room} onHide={toggleOverlay} />}
@@ -73,7 +55,6 @@ function Room({ room, fromdate, todate }) {
                 </div>
             </div>
         </div>
->>>>>>> dbfcbf5263dc0179d8667ef4a31f4cf6a7b2949a
   );
 }
 

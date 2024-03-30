@@ -10,6 +10,7 @@ import Login from './screens/LoginScreen';
 import Register from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import Payment from './screens/Payment';
 
 
 
@@ -32,6 +33,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/register" exact Component={RegisterScreen} />
+        </Routes>
+        <Routes>
+          <Route path="/payment" exact Component={Payment} />
         </Routes>
 
 

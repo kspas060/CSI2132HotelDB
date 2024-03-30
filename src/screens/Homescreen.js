@@ -12,48 +12,21 @@ function Homescreen() {
 
   const [rooms, setRooms] = useState([]);
 
-<<<<<<< HEAD
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const[fromdate, setfromdate]=useState();
-  const[todate, settodate]=useState();
+  const [fromdate, setfromdate] = useState();
+  const [todate, settodate] = useState();
 
-  function filterByDate(dates){
-  
+  function filterByDate(dates) {
+
     setfromdate(moment(dates[0]).format('DD-MM-YYYY'))
     settodate(moment(dates[1]).format('DD-MM-YYYY'))
     return dates
   }
 
-
-  return (
-    <div className='container'>
-      <div className='row mt-5'>
-        <div className='col-md-3'>
-          <RangePicker format="DD-MM-YYYY" onChange={filterByDate}/>
-        </div>
-
-      </div>
-
-
-      <Room room={{
-        name: 'Ocean View',
-        availableRooms: 5,
-        price: '$200',
-        numOfGuests: 2,
-        description: 'Beautiful room with ocean view',
-        image: 'https://t3.ftcdn.net/jpg/02/71/08/28/360_F_271082810_CtbTjpnOU3vx43ngAKqpCPUBx25udBrg.jpg',
-        startdate: fromdate,
-        enddate: todate
-
-      }} />
-    </div>
-
-
-=======
   useEffect(() => {
     axios.get('http://localhost:3001/api/rooms/getallrooms')
       .then(response => {
@@ -64,13 +37,67 @@ function Homescreen() {
 
 
   return (
-    <div>
-      {rooms.map(room => (
-        <Room key={room.name} room={room} />
-      ))}
+    <div className='container'>
+      <div className='row mt-5 bs'>
+        <div className='col-md-3'>
+          <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
+        </div>
+
+        <div className='col-md-9'>
+          <select style={{ float: "left", marginRight: "10px" }}>
+            <option Value="All Hotels">All Hotels</option>
+            <option Value="Belmont Hotel">Belmont Hotel</option>
+            <option Value="Paradise Hotel ">Paradise Hotel</option>
+            <option Value="Sea Shell Hotel">Sea Shell Hotel</option>
+            <option Value="Grand Hotel">Grand Hotel Hotel</option>
+            <option Value="Casablanca Hotel">Casablanca Hotel</option>
+          </select>
+
+          <select style={{ float: "left ", marginRight: "10px" }}>
+            <option Value="All Ratings">All Ratings</option>
+            <option Value="One Star">One Star</option>
+            <option Value="Two Stars">Two Stars</option>
+            <option Value="Three Stars">Three Stars</option>
+            <option Value="Four Stars">Four Stars</option>
+            <option Value="Five Stars">Five Stars</option>
+          </select>
+
+          <select style={{ float: "left ", marginRight: "10px"  }}>
+            <option Value="Room Capacity">Room Capacity</option>
+            <option Value="One Guest">One Guest</option>
+            <option Value="Two Guests">Two Guests</option>
+            <option Value="Three Guests">Three Guests</option>
+            <option Value="Four Guests">Four Guests</option>
+            <option Value="Five Guests">Five Guests</option>
+          </select>
+
+          <select style={{ float: "left ", marginRight: "10px"  }}>
+            <option Value="Any City">Any City</option>
+            <option Value="Ottawa, Canada">Ottawa, Canada</option>
+            <option Value="Vancouver, Canada">Vancouver, Canada</option>
+            <option Value="Cancun, Mexico">Cancun, Mexico</option>
+            <option Value="Punta Cana, Dominican Republic">Punta Cana, Dominican Republic</option>
+            <option Value="Havana, Cuba">Havana, Cuba</option>
+          </select>
+
+          <select style={{ float: "left ", marginRight: "10px"  }}>
+            <option Value="Any Number of Rooms Available">Any Number of Rooms Available</option>
+            <option Value="20+ Rooms">20+ Rooms</option>
+            <option Value="Vancouver, Canada">Vancouver, Canada</option>
+            <option Value="Cancun, Mexico">Cancun, Mexico</option>
+            <option Value="Punta Cana, Dominican Republic">Punta Cana, Dominican Republic</option>
+            <option Value="Havana, Cuba">Havana, Cuba</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div>
+        {rooms.map(room => (
+          <Room key={room.name} room={room} />
+        ))}
+      </div>
     </div>
->>>>>>> dbfcbf5263dc0179d8667ef4a31f4cf6a7b2949a
   )
 }
-
 export default Homescreen; 

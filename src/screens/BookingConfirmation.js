@@ -38,7 +38,7 @@ function BookingConfirmation() {
                 </div>
 
                 <div style={{ float: 'right' }}>
-                    <button className='btn btn-primary'>Pay Now</button>
+                    <a href="/payment" className="btn btn-primary">Pay Now</a>
                 </div>
             </div>
 
