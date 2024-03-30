@@ -50,6 +50,16 @@ h1{
 
 }
 
+.btn-secondary{
+  background-color: black !important;
+  color: white !important;
+  box-shadow: none !important;
+  border-radius: 5px !important;
+  margin-top: 20px !important;
+  margin-right: 20px !important;
+  padding: 10px !important;
+}
+
 .bs{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 20px !important;
@@ -60,6 +70,19 @@ h1{
 .bigimg{
   height: 400px;
   border-radius: 5px !important;
+}
+
+input{
+  box-shadow: none !important;
+  margin-top: 10px;
+  border: 1px solid black !important;
+}
+
+h2{
+  font-size: 30px !important;
+  padding: 10px;
+  font-weight: bold !important;
+  text-align: center;
 }
 
 

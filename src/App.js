@@ -6,6 +6,10 @@ import Homescreen from './screens/Homescreen';
 import Room from './components/Rooms';
 import { BookingPage } from './screens/BookingPage';
 import BookingConfirmation from './screens/BookingConfirmation';
+import Login from './screens/LoginScreen';
+import Register from './screens/RegisterScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 
 
@@ -23,6 +27,13 @@ function App() {
         <Routes>
           <Route path="/bookingConfirmation" exact Component={BookingConfirmation} />
         </Routes>
+        <Routes>
+          <Route path="/login" exact Component={LoginScreen} />
+        </Routes>
+        <Routes>
+          <Route path="/register" exact Component={RegisterScreen} />
+        </Routes>
+
 
       </Router>
 
