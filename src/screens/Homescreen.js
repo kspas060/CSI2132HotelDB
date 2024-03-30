@@ -39,22 +39,22 @@ function Homescreen() {
   return (
     <div className='container'>
       <div className='row mt-5 bs'>
-        <div className='col-md-3'>
+        <div className='col-md-3 input'>
           <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
 
         <div className='col-md-9'>
           <select style={{ float: "left", marginRight: "10px" }}>
-            <option Value="All Hotels">All Hotels</option>
+            <option Value="Any Hotel">Any Hotel Chain</option>
             <option Value="Belmont Hotel">Belmont Hotel</option>
             <option Value="Paradise Hotel ">Paradise Hotel</option>
             <option Value="Sea Shell Hotel">Sea Shell Hotel</option>
-            <option Value="Grand Hotel">Grand Hotel Hotel</option>
+            <option Value="Grand Hotel">Grand Hotel</option>
             <option Value="Casablanca Hotel">Casablanca Hotel</option>
           </select>
 
           <select style={{ float: "left ", marginRight: "10px" }}>
-            <option Value="All Ratings">All Ratings</option>
+            <option Value="Any Rating">Any Rating</option>
             <option Value="One Star">One Star</option>
             <option Value="Two Stars">Two Stars</option>
             <option Value="Three Stars">Three Stars</option>
@@ -63,7 +63,7 @@ function Homescreen() {
           </select>
 
           <select style={{ float: "left ", marginRight: "10px"  }}>
-            <option Value="Room Capacity">Room Capacity</option>
+            <option Value="Any Room Capacity">Any Room Capacity</option>
             <option Value="One Guest">One Guest</option>
             <option Value="Two Guests">Two Guests</option>
             <option Value="Three Guests">Three Guests</option>
@@ -82,11 +82,20 @@ function Homescreen() {
 
           <select style={{ float: "left ", marginRight: "10px"  }}>
             <option Value="Any Number of Rooms Available">Any Number of Rooms Available</option>
-            <option Value="20+ Rooms">20+ Rooms</option>
-            <option Value="Vancouver, Canada">Vancouver, Canada</option>
-            <option Value="Cancun, Mexico">Cancun, Mexico</option>
-            <option Value="Punta Cana, Dominican Republic">Punta Cana, Dominican Republic</option>
-            <option Value="Havana, Cuba">Havana, Cuba</option>
+            <option Value="20+ Rooms Available">20+ Rooms Available</option>
+            <option Value="50+ Rooms Available">50+ Rooms Available</option>
+            <option Value="100+ Rooms Available">100+ Rooms Available</option>
+            <option Value="250+ Rooms Available">250+ Rooms Available</option>
+            <option Value="500+ Rooms Available">500+ Rooms Available</option>
+          </select>
+
+          <select style={{ float: "left ", marginRight: "10px"  }}>
+            <option Value="Any Price">Any Price</option>
+            <option Value="100$-200$ Per Night">100$-200$ Per Night</option>
+            <option Value="200$-300$ Per Night">200$-300$ Per Night</option>
+            <option Value="300$-400$ Per Night">300$-400$ Per Night</option>
+            <option Value="400$-500$ Per Night">400$-500$ Per Night</option>
+            <option Value="500$-600$ Per Night">500$-600$ Per Night</option>
           </select>
         </div>
 

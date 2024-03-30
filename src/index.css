@@ -72,10 +72,11 @@ h1{
   border-radius: 5px !important;
 }
 
-input,select{
+input,select, .col-md-3{
   box-shadow: none !important;
   margin-top: 10px;
   border: 1px solid black !important;
+  border-radius: 5px !important;
 }
 
 h2{
@@ -83,6 +84,20 @@ h2{
   padding: 10px;
   font-weight: bold !important;
   text-align: center;
+}
+
+select {
+  width: 100%;
+  max-width: 260px;
+}
+
+.ant-picker-input input{
+  border: none !important;
+  /* width: 200% !important; */
+  padding-top: 10px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+
 }
 
 
