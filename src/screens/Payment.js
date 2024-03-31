@@ -37,16 +37,16 @@ function Payment() {
 
                         <div className='form-group-row '>
                             <label className='col-md-12'>Card Number</label>
-                            <div style={{ float: 'right' }} className='col-md-3 input'>
+                            <div style={{ float: 'left' }} className='col-md-2 input'>
                                 <input type='text' className='form-control' autoComplete='off' maxLength='4' pattern='\d{4}' title='First Four Digits' required=""></input>
                             </div>
-                            <div style={{ float: 'right' }} className='col-md-3'>
+                            <div style={{ float: 'left' }} className='col-md-2'>
                                 <input type='text' className='form-control' autoComplete='off' maxLength='4' pattern='\d{4}' title='Second Four Digits' required=""></input>
                             </div>
-                            <div style={{ float: 'right' }} className='col-md-3'>
+                            <div style={{ float: 'left' }} className='col-md-2'>
                                 <input type='text' className='form-control' autoComplete='off' maxLength='4' pattern='\d{4}' title='Third Four Digits' required=""></input>
                             </div>
-                            <div style={{ float: 'right' }} className='col-md-3'>
+                            <div style={{ float: 'left' }} className='col-md-2'>
                                 <input type='text' className='form-control' autoComplete='off' maxLength='4' pattern='\d{4}' title='Fourth Four Digits' required=""></input>
                             </div>
                         </div>
@@ -69,8 +69,8 @@ function Payment() {
                                     <option value='12'>December</option>
                                 </select>
                             </div>
-                            <div style={{ float: 'right' }} className='col-md-3'>
-                                <select className='form-control' name='cc_exp_yr'>
+                            <div style={{ float: 'left' }} className='col-md-2'>
+                                <select className='form-control col-md-2' style={{ float: 'left' }} name='cc_exp_yr'>
                                     <option>2024</option>
                                     <option>2025</option>
                                     <option>2026</option>
@@ -83,7 +83,7 @@ function Payment() {
                         </div>
                         <div className='form-group-row'>
                             <label className='col-md-12'>Card CVV</label>
-                            <div className='col-md-3'>
+                            <div className='col-md-4'>
                                 <input type='text' className='form-control' autoComplete='off' maxLength='3' pattern='\d{3}' title='Three digits at the back of your card' required=""></input>
                             </div>
                         </div>

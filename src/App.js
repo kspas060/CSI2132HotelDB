@@ -11,6 +11,7 @@ import Register from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import Payment from './screens/Payment';
+import AdminScreen from './screens/AdminScreen';
 
 
 
@@ -36,6 +37,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/payment" exact Component={Payment} />
+        </Routes>
+        <Routes>
+          <Route path="/admin" exact Component={AdminScreen} />
         </Routes>
 
 
