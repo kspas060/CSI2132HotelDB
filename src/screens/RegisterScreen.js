@@ -11,38 +11,33 @@ function RegisterScreen() {
 
     function register(){
         if(password == cpassword){
-            const user={
+            /* const user={
                 name,
                 email,
                 password,
                 cpassword
             }
-            console.log(user)
+            console.log(user)*/ 
+            //console.log(name)
+            axios.post("http://localhost:3001/api/customer/create",{
+                customer_id: Math.floor(10000 +         Math.random() * 90000),
+                full_name: name,
+                customer_address: email,
+                password: password,
+                payment_info: "Credit Card",
+            })
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            window.location.href = "/login";
         }else{
             alert("Passwords do not match")
         }
     }
-    function login(email, password)  {
-        axios.post("http://localhost:3001/api/customer/create",{
-            customer_id: Date.now(),
-            full_name,
-            customer_address,
-            password,
-            payment_info: 0
-        })
-        .then(response => {
-            console.log(response.data);
-            alert("Registration successful")
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
 
-
-
-
-    
   return (
     <div>
         <div className='row justify-content-center mt-5'>
