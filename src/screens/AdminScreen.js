@@ -127,21 +127,61 @@ export function Addroom() {
     const[pricepernight, setPricePerNight] = useState('')
     const[link, setLink] = useState('')
 
-    function addRoom(){
+    // function addRoom(){
 
-        const newroom = {
-            roomnum,
-            address,
-            extendable,
-            view,
-            amenities,
-            damages,
-            capacity,
-            pricepernight,
-            link
-        }
+    //     const newroom = {
+    //         roomnum,
+    //         address,
+    //         extendable,
+    //         view,
+    //         amenities,
+    //         damages,
+    //         capacity,
+    //         pricepernight,
+    //         link
+    //     }
 
+    //     // try{
+    //     //     const result =  ( axios.post('http://localhost:3001/api/room/create', newroom)).data
+    //     //     console.log(result)
+    //     // } catch(error){
+    //     //     console.log(error)
+    //     // }
+
+    //     axios.post("http://localhost:3001/api/room/create", newroom)
+    //     .then(response => {
+    //         console.log(response.data);
+    //         alert("Registration successful")
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     })
+
+
+    // }
+
+    function addRoom()  {
+
+        console.log(capacity)
         
+        axios.post("http://localhost:3001/api/room/create",{
+            room_no: roomnum,
+            address: address,
+            extendable: extendable,
+            view: view,
+            amenities: amenities,
+            damages: damages,
+            capacity: capacity,
+            price: pricepernight,
+            image_link: link,
+        })
+        .then(response => {
+            console.log(response.data);
+            alert("Registration successful")
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
   return (
@@ -153,10 +193,10 @@ export function Addroom() {
             <input type = 'text' className='form-control' placeholder='Address'
             value = {address} onChange={(e)=>{setAddress(e.target.value)}}>
             </input>
-            <input type = 'text' className='form-control' placeholder='If extendable'
+            <input type = 'text' className='form-control' placeholder='If extendable (yes or no)'
             value = {extendable} onChange={(e)=>{setExtendable(e.target.value)}}>
             </input>
-            <input type = 'text' className='form-control' placeholder='View'
+            <input type = 'text' className='form-control' placeholder='View (mountain or sea view)'
             value = {view} onChange={(e)=>{setView(e.target.value)}}>
             </input>
             <input type = 'text' className='form-control' placeholder='Amenities'
@@ -179,7 +219,7 @@ export function Addroom() {
             </input>
 
             <div className='text-right'>
-                <button className='btn btn-primary' onClick={Addroom}> Add Room</button>
+                <button className='btn btn-primary' onClick={addRoom}> Add Room</button>
                 
             </div>
         </div>
