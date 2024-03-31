@@ -17,10 +17,10 @@ function LoginScreen() {
         .then(response => {
         if (response.data.length != 0) {
             const customer_id = response.data[0].customer_id
-            // window.location.href = `/?customer_id=${customer_id}`;
-            console.log(customer_id)
-            setcustomerID(customer_id)
-            setEmailError("User Exists. Will shortly direct to home page");
+            //console.log(customer_id)
+            window.location.href = `/?customer_id=${customer_id}`;
+            //setcustomerID(customer_id)
+            //setEmailError("User Exists. Will shortly direct to home page");
         } else {
             setEmailError("Invalid email or password");
         }
@@ -41,12 +41,9 @@ function LoginScreen() {
                     <input type='text' className='form-control' placeholder='password'
                     value = {password} onChange={(e)=>{setpassword(e.target.value)}}></input>
 
-                    
+    
 
-                    {customerID ? <Link to={'/'} state={{customer_id: customerID}}><button className='btn-secondary'>login</button></Link> : 
-                    <Link to={'/login'} ><button className='btn-secondary' onClick={() => login(email, password)}>login</button></Link>
-                    }
-                    {emailError && <div className="alert alert-danger">{emailError}</div>}
+                    <button className='btn-secondary' onClick={() => login(email, password) }>Login</button>
 
 
                 </div>
