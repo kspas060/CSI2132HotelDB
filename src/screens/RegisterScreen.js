@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+
+
 
 function RegisterScreen() {
     const[name, setname] =useState('')
@@ -19,6 +22,26 @@ function RegisterScreen() {
             alert("Passwords do not match")
         }
     }
+    function login(email, password)  {
+        axios.post("http://localhost:3001/api/customer/create",{
+            customer_id: Date.now(),
+            full_name,
+            customer_address,
+            password,
+            payment_info: 0
+        })
+        .then(response => {
+            console.log(response.data);
+            alert("Registration successful")
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+
+
+
     
   return (
     <div>

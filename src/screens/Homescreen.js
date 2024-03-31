@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Modal, Button } from 'react-bootstrap';
 import Room from '../components/Rooms';
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from 'antd'; 
 import moment from 'moment';
 const { RangePicker } = DatePicker;
 
@@ -100,9 +100,15 @@ function Homescreen() {
       </div>
 
       <div>
-        {rooms.map(room => (
-          <Room key={room.name} room={room} fromdate={fromdate} todate={todate} />
-        ))}
+        {rooms.length === 0 ? (
+          <p style={{textAlign: "center"}}>
+            Sorry, the currently database is down, cannot present rooms
+          </p>
+        ) : (
+          rooms.map(room => (
+            <Room key={room.name} room={room} fromdate={fromdate} todate={todate} />
+          ))
+        )}
       </div>
     </div>
   )

@@ -22,6 +22,24 @@ const RoomOverlay = ({ roomInfo, onHide }) => {
   );
 };
 
+
+const NoDateOverlay = ({ onHide }) => {
+  return (
+    <Modal show={true} onHide={onHide}>
+      <Modal.Header closeButton>
+        <Modal.Title>Invalid Dates</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>Please choose valid From and To Dates</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
+
 function Room({ room, fromdate, todate }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
@@ -56,9 +74,13 @@ function Room({ room, fromdate, todate }) {
                     <div style={{ float: "right" }}>
                         
 
-                        <Link className="btn btn-primary" 
-                            to="/bookingConfirmation" state={{roomInfo: room, fromdate: fromdate, todate: todate}}>
-                              Book Now</Link>
+                        {fromdate && todate ? (
+                            <Link className="btn btn-primary" 
+                                to="/bookingConfirmation" state={{roomInfo: room, fromdate: fromdate, todate: todate}}>
+                                Book Now</Link>
+                        ) : (
+                            <button className="btn btn-primary" onClick={() => alert("Please choose a valid date range")}>Book Now</button>
+                        )}
 
                         
                     </div>

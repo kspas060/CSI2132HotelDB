@@ -4,29 +4,26 @@ import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 function LoginScreen() {
-  const[name, setname] =useState('')
-  const[email, setemail] = useState('')
-  const[password, setpassword] = useState('')
-  const[cpassword, setcpassword] = useState('')
+    const[name, setname] =useState('')
+    const[email, setemail] = useState('')
+    const[password, setpassword] = useState('')
+    const[cpassword, setcpassword] = useState('')
 
-  const [emailError, setEmailError] = useState('')
+    const [emailError, setEmailError] = useState('')
 
 
-  function login(email, password)  {
+    function login(email, password)  {
     axios.get(`http://localhost:3001/api/customer/mail?customer_address=${email}&password=${password}`)
-      .then(response => {
+        .then(response => {
         if (response.data.length != 0) {
-          window.location.href = '/';
+            window.location.href = '/';
         } else {
-          setEmailError("Invalid email or password");
+            setEmailError("Invalid email or password");
         }
-      })
-  }
+        })
+    }
 
-
-
-  
-  return (
+    return (
     <div>
         <div className='row justify-content-center mt-5'>
             <div className='col-md-5 mt-5'>
