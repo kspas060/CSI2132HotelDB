@@ -2,10 +2,23 @@ import React from 'react'
 import CalendarBooker from '../components/CalendarBooker'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useLocation } from 'react-router-dom';
 import Homescreen from './Homescreen';
 
 
 function BookingConfirmation() {
+
+    const location = useLocation();
+    const { roomInfo, fromdate, todate } = location.state;
+
+    console.log("Booking Confirmation",fromdate, todate);
+
+    const fromDate = new Date(fromdate);
+    const toDate = new Date(todate);
+
+    const totalDays = (toDate.getTime() - fromDate.getTime()) / (1000 * 3600 * 24);
+
+
     return (
         <div className="row justify-content-center mt-5 bs m-5">
 
@@ -21,9 +34,9 @@ function BookingConfirmation() {
                 <div style={{ textAlign: 'right' }}>
                     <b>
                         <p>Name: </p>
-                        <p>Start Date:</p>
-                        <p>End Date: </p>
-                        <p>Number of Guests: </p>
+                        <p>Start Date: {fromdate}</p>
+                        <p>End Date: {todate} </p>
+                        <p>Number of Guests: {roomInfo.capacity} </p>
                     </b>
                 </div>
 
@@ -31,9 +44,9 @@ function BookingConfirmation() {
                     <b>
                         <h1>Amount</h1>
                         <hr />
-                        <p>Total Days: </p>
-                        <p>Cost Per Night:</p>
-                        <p>Total Amount:</p>
+                        <p>Total Days: { totalDays } </p>
+                        <p>Cost Per Night: {roomInfo.price}</p>
+                        <p>Total Amount: { totalDays * roomInfo.price}</p>
                     </b>
                 </div>
 

@@ -25,9 +25,13 @@ const RoomOverlay = ({ roomInfo, onHide }) => {
 function Room({ room, fromdate, todate }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
+  console.log(fromdate, todate);
+
   const toggleOverlay = () => {
       setShowOverlay(!showOverlay);
   };
+
+
 
   return (
       <div className='container'>
@@ -50,7 +54,13 @@ function Room({ room, fromdate, todate }) {
                         {showOverlay && <RoomOverlay roomInfo={room} onHide={toggleOverlay} />}
                     </div>
                     <div style={{ float: "right" }}>
-                        <a href="/booking" className="btn btn-primary">Book Now</a>
+                        
+
+                        <Link className="btn btn-primary" 
+                            to="/bookingConfirmation" state={{roomInfo: room, fromdate: fromdate, todate: todate}}>
+                              Book Now</Link>
+
+                        
                     </div>
                 </div>
             </div>

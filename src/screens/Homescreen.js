@@ -21,9 +21,8 @@ function Homescreen() {
   const [todate, settodate] = useState();
 
   function filterByDate(dates) {
-
-    setfromdate(moment(dates[0]).format('DD-MM-YYYY'))
-    settodate(moment(dates[1]).format('DD-MM-YYYY'))
+    setfromdate((dates[0]).format('YYYY-MM-DD'))
+    settodate((dates[1]).format('YYYY-MM-DD'))
     return dates
   }
 
@@ -42,7 +41,7 @@ function Homescreen() {
         <div className='col-md-3 input'>
           <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
         </div>
-
+        
         <div className='col-md-9'>
           <select style={{ float: "left", marginRight: "10px" }}>
             <option Value="Any Hotel">Any Hotel Chain</option>
@@ -98,12 +97,11 @@ function Homescreen() {
             <option Value="500$-600$ Per Night">500$-600$ Per Night</option>
           </select>
         </div>
-
       </div>
 
       <div>
         {rooms.map(room => (
-          <Room key={room.name} room={room} />
+          <Room key={room.name} room={room} fromdate={fromdate} todate={todate} />
         ))}
       </div>
     </div>
