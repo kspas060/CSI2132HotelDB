@@ -11,8 +11,8 @@ function AdminScreen() {
             <TabPane tab = "Bookings" key="1">
                 <Bookings></Bookings>
             </TabPane>
-            <TabPane tab = "Rooms" key="2">
-                <h1>Rooms</h1>
+            <TabPane tab = "Add Booking" key="2">
+                <Addbooking></Addbooking>
             </TabPane>
             <TabPane tab = "Add Room" key="3">
                 <Addroom></Addroom>
@@ -55,12 +55,13 @@ export function Bookings(){
                     </thead>
 
                     <tbody>
-                        {bookings.length && (bookings.map(booking=>{
+                        {bookings.length && (bookings.map(bookings=>{
                             return <tr>
                                 <td>{bookings.room_no} </td>
                                 <td>{bookings.customer_id}</td>
                                 <td>{bookings.start_date}</td>
                                 <td>{bookings.end_date}</td>
+                                <td>Booked</td>
                             </tr>
                         }))}
                     </tbody>
@@ -126,39 +127,6 @@ export function Addroom() {
     const[capacity, setCapacity] = useState('')
     const[pricepernight, setPricePerNight] = useState('')
     const[link, setLink] = useState('')
-
-    // function addRoom(){
-
-    //     const newroom = {
-    //         roomnum,
-    //         address,
-    //         extendable,
-    //         view,
-    //         amenities,
-    //         damages,
-    //         capacity,
-    //         pricepernight,
-    //         link
-    //     }
-
-    //     // try{
-    //     //     const result =  ( axios.post('http://localhost:3001/api/room/create', newroom)).data
-    //     //     console.log(result)
-    //     // } catch(error){
-    //     //     console.log(error)
-    //     // }
-
-    //     axios.post("http://localhost:3001/api/room/create", newroom)
-    //     .then(response => {
-    //         console.log(response.data);
-    //         alert("Registration successful")
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     })
-
-
-    // }
 
     function addRoom()  {
 
@@ -228,3 +196,68 @@ export function Addroom() {
     </div>
   )
 }
+
+//add booking by admin
+export function Addbooking() {
+    const[roomnum, setRoomnum] = useState('')
+    const[hotel, sethotel] = useState('')
+    const[customerid, setcustomerid] = useState('')
+    const[sin, setsin] = useState('')
+    const[startdate, setstartdate] = useState('')
+    const[enddate,setenddate] = useState('')
+
+    function addbooking()  {
+        
+        axios.post("http://localhost:3001/api/booking/create",{
+            room_no: roomnum,
+            room_hotel: hotel,
+            customer_id: customerid,
+            SIN: sin,
+            start_date: startdate,
+            end_date: enddate,
+        })
+        .then(response => {
+            console.log(response.data);
+            alert("Registration successful")
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+  return (
+    <div className='row'>
+        <div className='col-md-5'>
+            <input type = 'text' className='form-control' placeholder='Room number'
+                value={roomnum} onChange={(e)=>{setRoomnum(e.target.value)}}>
+            </input>
+            <input type = 'text' className='form-control' placeholder='Hotel'
+            value = {hotel} onChange={(e)=>{sethotel(e.target.value)}}>
+            </input>
+            <input type = 'text' className='form-control' placeholder='Customer ID'
+            value = {customerid} onChange={(e)=>{setcustomerid(e.target.value)}}>
+            </input>
+        </div>
+
+        <div className='col-md-5'>
+        <input type = 'text' className='form-control' placeholder='Employee SIN'
+            value = {sin} onChange={(e)=>{setsin(e.target.value)}}>
+            </input>
+            <input type = 'text' className='form-control' placeholder='Start Date'
+            value = {startdate} onChange={(e)=>{setstartdate(e.target.value)}}>
+            </input>
+            <input type = 'text' className='form-control' placeholder='End Date'
+            value = {enddate} onChange={(e)=>{setenddate(e.target.value)}}>
+            </input>
+
+            <div className='text-right'>
+                <button className='btn btn-primary' onClick={addbooking}> Add Booking</button>
+                
+            </div>
+        </div>
+
+
+    </div>
+  )
+}
+
